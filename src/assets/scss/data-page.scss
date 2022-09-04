@@ -1,0 +1,232 @@
+:root {
+	--primary-light: #39ddfa;
+	--primary: #00abdf;
+	--primary-dark: #008ada;
+
+	--white: #ffffff;
+	--greyLight-1: #ebf5fc;
+	--greyLight-2: #d5e0f3;
+	--greyLight-3: #c1d9f0;
+	--greyDark: #646b8c;
+}
+
+.data-container {
+	height: 86vh;
+	overflow-y: auto;
+}
+.data-container::-webkit-scrollbar {
+	display: none;
+}
+
+.data_card_container {
+	display: grid;
+	grid-gap: 30px;
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+	align-items: center;
+	background-color: #e1e1e1;
+	padding: 100px 50px;
+	//font-family: "Poppins", sans-serif !important;
+}
+
+//////////////////////
+.hd_analytics_card {
+	background-color: #e1e1e1;
+	padding-top: 65px;
+	text-transform: uppercase;
+}
+.circular-progress {
+	position: relative;
+	height: 250px;
+	width: 250px;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+}
+.circular-progress:before {
+	content: "";
+	position: absolute;
+	height: 84%;
+	width: 84%;
+	background-color: #ffffff;
+	border-radius: 50%;
+}
+.value-container {
+	position: relative;
+	font-weight: 900;
+	font-size: 30px;
+	color: #231c3d;
+}
+.circular_card {
+	height: 430px;
+	width: 430px;
+	background-color: #ffffff;
+	border-radius: 8px;
+	box-shadow: 20px 20px 40px rgba(60, 60, 150, 0.25);
+	display: grid;
+	place-items: center;
+	transition: 0.3s all;
+	&:hover {
+		transform: translateY(-10px);
+		box-shadow: 40px 20px 20px rgba(60, 60, 150, 0.25);
+		cursor: pointer;
+	}
+}
+.title_circle_card {
+	font-weight: 300;
+	font-size: 20px;
+}
+
+/////////HISTORY
+///
+.history_download_video {
+	background: #222327;
+}
+
+.hd_history {
+	text-transform: uppercase;
+	padding: 25px 0;
+	color: #fff;
+}
+$historyItem: #d0d3d4;
+
+.render_area_history {
+	padding: 10px 15px;
+
+	.history_item {
+		transform: translateZ(160px) rotateY(180deg);
+		margin: 50px auto;
+		display: flex;
+		background-color: $historyItem;
+		padding: 25px 50px;
+		border-radius: 20px;
+		position: relative;
+		width: 1200px;
+		animation: show_history_item 0.8s forwards linear;
+		transition: 0.3s all;
+		overflow: hidden;
+	}
+
+	.history_item_thumbnails img {
+		max-width: 300px;
+		max-height: 200px;
+	}
+	.history_link_title {
+		text-decoration: none;
+		color: #000;
+		padding: 5px;
+		font-weight: bold;
+	}
+	.history_txt_data {
+		font-size: 20px;
+		padding-left: 20px;
+		grid-gap: 40px;
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		grid-template-areas:
+			"title  title title title play"
+			"localPath  time time size play";
+	}
+	.history_item_title {
+		grid-area: title;
+		font-size: 22;
+		width: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		padding: 5px;
+		text-overflow: ellipsis;
+	}
+	.history_item_size {
+		grid-area: size;
+	}
+	.history_item_localPath {
+		grid-area: localPath;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+	.history_item_downloadTime {
+		grid-area: time;
+	}
+	.history_item_play {
+		grid-area: play;
+		align-self: center;
+		.play-btn {
+			transition: 0.1s all;
+			&:hover {
+				cursor: pointer;
+				color: $MAIN_RED_COLOR;
+			}
+		}
+	}
+}
+
+////////CHECK (NEED MODE DATA)
+
+.need_mode_data_analytics_card {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.need_mode_data_history {
+	font-size: 20px;
+	font-weight: bold;
+	color: $historyItem;
+}
+
+.btns-control-history {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	div {
+		margin: 10px 50px 80px 50px;
+	}
+}
+.current_and_total_pages_history {
+	font-size: 35px;
+}
+
+@for $i from 0 through 10 {
+	.history_item:nth-child(#{$i}) {
+		animation-delay: #{$i * 0.25}s;
+		&:hover {
+			&::before {
+				width: 150%;
+			}
+		}
+	}
+}
+.history_item::before {
+	content: "";
+	z-index: -1;
+	border-radius: 100px;
+	position: absolute;
+	left: -10%;
+	bottom: 0;
+	width: 0%;
+	height: 100%;
+	background: #fdfefe;
+	transition: 1.3s all;
+}
+
+.prev-history-page,
+.next-history-page {
+	transition: 0.3s all;
+	&:hover {
+		cursor: pointer;
+		color: $MAIN_RED_COLOR;
+	}
+}
+
+.prev-history-page {
+	&:hover {
+		animation: hover_arrow_left 1s infinite ease-in-out;
+	}
+}
+.next-history-page {
+	&:hover {
+		animation: hover_arrow_right 1s infinite ease-in-out;
+	}
+}

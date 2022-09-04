@@ -1,6 +1,6 @@
 import { app, BrowserWindow, ipcMain } from "electron";
 const { autoUpdater } = require("electron-updater");
-import { fs, path } from "./scripts/requiredLib";
+import { fs, path , url } from "./scripts/requiredLib";
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 
@@ -24,7 +24,14 @@ const createWindow = (): void => {
 	});
 
 	// and load the index.html of the app.
-	mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
+	//mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
+	
+	mainWindow.loadURL(url.format({
+		pathname: path.join(__dirname, 'index.html'),
+		protocol: 'file:',
+		slashes: true
+		  }));
+
 
 	// Open the DevTools.
 	mainWindow.webContents.openDevTools();

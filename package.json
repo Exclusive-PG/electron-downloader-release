@@ -1,21 +1,15 @@
 {
   "name": "youtube-downloader",
   "productName": "youtube-downloader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "My Electron application description",
   "main": ".webpack/main",
-  "repository": {
-    "type" : "git",
-    "url" : "https://github.com/Exclusive-PG/electron-downloader-release.git"
-  },
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "eslint --ext .ts,.tsx .",
-    "build": "electron-builder build --win --publish never",
-    "deploy": "electron-builder build --win --publish always"
+    "lint": "eslint --ext .ts,.tsx ."
   },
   "keywords": [],
   "author": {
@@ -46,6 +40,19 @@
         {
           "name": "@electron-forge/maker-rpm",
           "config": {}
+        }
+      ],
+      "publishers": [
+        {
+          "name": "@electron-forge/publisher-github",
+          "config": {
+            "repository": {
+              "owner": "Exclusive-PG",
+              "name": "electron-downloader-release",
+              "draft": true
+            },
+            "authToken": "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"
+          }
         }
       ],
       "plugins": [
@@ -79,13 +86,13 @@
     "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
     "@electron-forge/maker-zip": "^6.0.0-beta.61",
     "@electron-forge/plugin-webpack": "^6.0.0-beta.61",
+    "@electron-forge/publisher-github": "^6.0.0-beta.65",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "@vercel/webpack-asset-relocator-loader": "^1.7.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
     "electron": "18.2.3",
-    "electron-builder": "^23.3.3",
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.26.0",
     "file-loader": "^6.2.0",
@@ -100,11 +107,12 @@
     "url-loader": "^4.1.1"
   },
   "dependencies": {
+    "electron-log": "^4.4.8",
     "electron-squirrel-startup": "^1.0.0",
-    "electron-updater": "^5.2.1",
     "firebase": "^9.9.4",
     "node-pre-gyp": "^0.17.0",
     "swiper": "^8.1.4",
+    "update-electron-app": "^2.0.1",
     "ytdl-core": "^4.11.0"
   }
 }

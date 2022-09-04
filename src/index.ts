@@ -1,5 +1,4 @@
 import { app, BrowserWindow, ipcMain } from "electron";
-const { autoUpdater } = require("electron-updater");
 import { fs, path , url } from "./scripts/requiredLib";
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
@@ -24,21 +23,13 @@ const createWindow = (): void => {
 	});
 
 	// and load the index.html of the app.
-	//mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
+	mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 	
-	mainWindow.loadURL(url.format({
-		pathname: path.join(__dirname, 'index.html'),
-		protocol: 'file:',
-		slashes: true
-		  }));
 
 
 	// Open the DevTools.
 	mainWindow.webContents.openDevTools();
 
-	mainWindow.once("ready-to-show", () => {
-		autoUpdater.checkForUpdatesAndNotify();
-	});
 };
 
 app.on("ready", createWindow);
@@ -66,13 +57,8 @@ ipcMain.on("app_version", (event) => {
 	event.sender.send("app_version", { version: app.getVersion() });
 });
 
-ipcMain.on("restart_app", () => {
-	autoUpdater.quitAndInstall();
-});
-
-autoUpdater.on("update-available", () => {
-	mainWindow.webContents.send("update_available");
-});
-autoUpdater.on("update-downloaded", () => {
-	mainWindow.webContents.send("update_downloaded");
-});
+require('update-electron-app')({
+	repo: 'Exclusive-PG/electron-downloader-release',
+	notifyUser : true,
+	logger: require('electron-log')
+  })

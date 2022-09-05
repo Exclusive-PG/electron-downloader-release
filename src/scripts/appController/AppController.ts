@@ -1,7 +1,5 @@
 export default class AppController {
-	private config = {
-		version: "1.0.1",
-	};
+
 	private Scripts: Array<Function> = [];
 
 	public pushScript(script: Function) {
@@ -16,7 +14,5 @@ export default class AppController {
 			script();
 		});
 	}
-    public get getVersion(){
-        return this.config.version
-    }
+ 
 }

@@ -138,7 +138,7 @@ export const disabledPictureInPictureMode = () => document.pictureInPictureEleme
 videoElement.addEventListener("leavepictureinpicture", function (event) {
 	console.log("leave pip");
 	setTimeout(() => {
-		videoPlayer.play();
+		 videoPlayer.play();
 	}, 1);
 });
 
@@ -182,6 +182,8 @@ function durationVideo(time: number) {
 	const seconds = Math.floor(time % 60);
 	const minutes = Math.floor(time / 60) % 60;
 	const hour = Math.floor(time / 3600);
+
+	if(isNaN(seconds)) return `00:00`;
 
 	if (hour === 0) {
 		return `${minutes}:${leadingZeroFormatter.format(seconds)}`;
@@ -325,4 +327,4 @@ document.addEventListener("fullscreenchange", function () {
 
 // const previewImg = document.querySelector<HTMLImageElement>(".preview-img");
 // const thumbnailImg = document.querySelector<HTMLDivElement>(".thumb-img");
-document.querySelector<HTMLImageElement>(".poster-video").src = logo
+document.querySelector<HTMLImageElement>(".poster-video").src = logo;

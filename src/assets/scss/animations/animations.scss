@@ -11,10 +11,10 @@
 
 @keyframes rotateModel {
 	0% {
-		transform: rotate(0deg) translateY(0);
+		transform: rotate(0deg);
 	}
 	100% {
-		transform: rotate(360deg)  translateY(-15px);
+		transform: rotate(360deg);
 	}
 }
 
@@ -65,11 +65,15 @@
 
 @keyframes show_history_item {
 	0% {
-		transform: translateZ(160px) rotateY(180deg);
-	}
-	100% {
-		transform: translateZ(0) rotateY(0);
-	}
+		-webkit-transform: scale(0);
+				transform: scale(0);
+		opacity: 1;
+	  }
+	  100% {
+		-webkit-transform: scale(1);
+				transform: scale(1);
+		opacity: 1;
+	  }
 }
 
 @keyframes bounce-in-bottom {

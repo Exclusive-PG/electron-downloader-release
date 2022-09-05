@@ -93,7 +93,7 @@ $historyItem: #d0d3d4;
 	padding: 10px 15px;
 
 	.history_item {
-		transform: translateZ(160px) rotateY(180deg);
+		transform: scale(0);
 		margin: 50px auto;
 		display: flex;
 		background-color: $historyItem;
@@ -101,7 +101,7 @@ $historyItem: #d0d3d4;
 		border-radius: 20px;
 		position: relative;
 		width: 1200px;
-		animation: show_history_item 0.8s forwards linear;
+		animation: show_history_item .7s forwards linear;
 		transition: 0.3s all;
 		overflow: hidden;
 	}

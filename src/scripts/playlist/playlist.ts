@@ -7,6 +7,7 @@ import { configSetup } from "./../../config/currentConfig";
 import { videoPlayer } from "./../videoplayer/videoPlayerController";
 import { fs } from "./../requiredLib";
 import PaginationData from "./../pagination/Pagination";
+import { startVideoPlayerAnimations } from "../videoplayer/videoPlayerControllerAnimation";
 
 const playlistControllerBtn = document.querySelector(".playlist_controller_btn");
 const playlistZone = document.querySelector(".playlistZone");
@@ -139,6 +140,7 @@ const renderAvailablePlaylists = (outResult: HTMLElement) => {
 			swiper.slideTo(1);
 			showCurrentPlayingVideo();
 			playlistPlayingName.children[0].textContent = currentIdPlaylist.toUpperCase();
+			startVideoPlayerAnimations();
 		});
 	});
 };

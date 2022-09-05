@@ -13,5 +13,14 @@ import "./scripts/news/news-controller"
 //db
 //import "./firebase/init"
 //import "./firebase/initDB"
-
 import "./scripts/appController/app"
+
+const loader = document.querySelector<HTMLElement>(".loaderPage");
+const delay = 5000;
+document.addEventListener("DOMContentLoaded", ()=>pageLoaded(loader));
+
+function pageLoaded(loader:HTMLElement) {
+   setTimeout(() => {
+    loader.classList.add("done")
+   }, delay);
+}

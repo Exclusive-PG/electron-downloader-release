@@ -62,8 +62,20 @@ ipcMain.on("app_version", (event) => {
 	event.sender.send("app_version", { version: app.getVersion() });
 });
 
+
+
+
+// mainWindow.webContents.on('did-finish-load',WindowsReady);
+
+// function WindowsReady() {
+//     console.log('Ready');
+// }
+
+//auto updating
 require('update-electron-app')({
 	repo: 'Exclusive-PG/electron-downloader-release',
 	notifyUser : true,
 	logger: require('electron-log')
   })
+
+

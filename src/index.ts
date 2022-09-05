@@ -11,8 +11,8 @@ let mainWindow: BrowserWindow;
 const createWindow = (): void => {
 	// Create the browser window.
 	mainWindow = new BrowserWindow({
-		height: 600,
-		width: 800,
+		minHeight:800,
+		minWidth:1000,
 		webPreferences: {
 			nodeIntegration: true,
 			contextIsolation: false,
@@ -25,10 +25,15 @@ const createWindow = (): void => {
 	// and load the index.html of the app.
 	mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 	
-
+	//mainWindow.setSimpleFullScreen(true)
+	
+	//mainWindow.setProgressBar(100)
+	
+	//mainWindow.setFullScreen(true)
 
 	// Open the DevTools.
-	mainWindow.webContents.openDevTools();
+	mainWindow.maximize();
+	//mainWindow.webContents.openDevTools();
 
 };
 

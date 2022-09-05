@@ -1,8 +1,8 @@
 {
   "name": "youtube-downloader",
-  "productName": "youtube-downloader",
-  "version": "1.0.1",
-  "description": "My Electron application description",
+  "productName": "Exclusive-YTDownloader",
+  "version": "1.0.2",
+  "description": "special program for downloading content from YouTube to your computer, and also includes data analytics, history, quick settings, easy and modern user interface, convenient control of playlists on your PC ",
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
@@ -13,7 +13,7 @@
   },
   "keywords": [],
   "author": {
-    "name": "Exclusive-PG",
+    "name": "Dmitry Ilchenko",
     "email": "daymerexc@gmail.com"
   },
   "license": "MIT",
@@ -51,7 +51,7 @@
               "name": "electron-downloader-release",
               "draft": true
             },
-            "authToken": "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"
+            "authToken": "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"
           }
         }
       ],

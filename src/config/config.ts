@@ -16,7 +16,7 @@ export default class Config {
 		downloadsConfig: {
 			format: ".mp4",
 			dirSave: "downloads",
-			playlist: "retro",
+			playlist: "my-playlist",
 		},
 		videoConfig: {
 			quality: "",

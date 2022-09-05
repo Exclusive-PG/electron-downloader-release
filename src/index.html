@@ -45,7 +45,7 @@
 								</div>
 								<div class="container-wave">
 									<svg viewBox="0 0 500 500" preserveAspectRatio="xMinYMin meet">
-										<path d="M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z" style="stroke: none; fill: hsl(216, 21%, 16%)"></path>
+										<path d="M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z" style="stroke: none; fill: #222327"></path>
 									</svg>
 								</div>
 							</div>
@@ -172,6 +172,9 @@
 						<div class="playlist_wrapper playlist_controller_btn">
 							<i class="fa-solid fa-list fa-2x"></i>
 						</div>
+						<div class="news_wrapper">
+							<i class="fa-solid fa-newspaper fa-2x"></i>
+						</div>
 					</div>
 					<div class="settings_panel hide">
 						<div class="content_block_settings">
@@ -274,10 +277,9 @@
 					</div>
 				</div>
 			</section>
-			<section id="notification" class="hidden">
-				<p id="message"></p>
-				<button id="close-button" onClick="closeNotification()">Close</button>
-				<button id="restart-button" onClick="restartApp()" class="hidden">Restart</button>
+			<section class="newsZone">
+				<center><h2 class="hd_news_zone">News</h2></center>
+				<div class="render_place_for_news"></div>
 			</section>
 		</main>
 
@@ -292,34 +294,14 @@
 		<script>
 			const { ipcRenderer } = require("electron");
 			const version = document.querySelector(".version");
-			const notification = document.getElementById("notification");
-			const message = document.getElementById("message");
-			const restartButton = document.getElementById("restart-button");
 
 			ipcRenderer.send("app_version");
+
 			ipcRenderer.on("app_version", (event, arg) => {
 				ipcRenderer.removeAllListeners("app_version");
 				version.textContent = `ver. ${arg.version}`;
 			});
 
-			ipcRenderer.on("update_available", () => {
-				ipcRenderer.removeAllListeners("update_available");
-				message.innerText = "A new update is available. Downloading now...";
-				notification.classList.remove("hidden");
-			});
-			ipcRenderer.on("update_downloaded", () => {
-				ipcRenderer.removeAllListeners("update_downloaded");
-				message.innerText = "Update Downloaded. It will be installed on restart. Restart now?";
-				restartButton.classList.remove("hidden");
-				notification.classList.remove("hidden");
-			});
-
-			function closeNotification() {
-				notification.classList.add("hidden");
-			}
-			function restartApp() {
-				ipcRenderer.send("restart_app");
-			}
 		</script>
 	</body>
 </html>

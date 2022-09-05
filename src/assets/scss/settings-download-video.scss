@@ -17,22 +17,34 @@ $zIndexBtns: 13;
 }
 .btns_controller {
 	position: fixed;
-	right: 80px;
-	bottom: 80px;
+	right: 0px;
+	bottom: 150px;
 	transition: 0.3s all;
+	width: 150px;
+	height: 200px;
 	z-index: $zIndexBtns;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	//background-color: #fff;
 	cursor: pointer;
-	.settings_wrapper:hover {
-		animation: rotateModel 0.5s ease-in-out;
-		color: $MAIN_RED_COLOR;
-	}
-	.playlist_wrapper {
-		margin-top: 20px;
-	//	transform: rotate(-180deg);
-		&:hover {
+
+
+	div{
+		margin: 10px 0;
+		transition: .2s all ease-in-out;
+		padding: 20px;
+		background-color: #fff;
+		color:#23242a;
+		border-radius: 50%;
+		&:hover{
+			//animation: rotateModel 0.5s ease-in-out;
+			transform: translateY(-15px);
 			color: $MAIN_RED_COLOR;
 		}
 	}
+	
 }
 
 .content_block_settings {

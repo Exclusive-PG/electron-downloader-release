@@ -13,9 +13,9 @@
 
     //const auth=firebase.auth();
      //@ts-ignore
-    const db = firebase.firestore();
+   export const db = firebase.firestore();
 
-     async function get(collection:any, db:any) {
+export   async function get(collection:any, db:any) {
         let docs:any[] = [];
 
         const querySnapshot = await db.collection(collection).get();
@@ -28,12 +28,11 @@
         return docs;
     }
 
-    const getData = async (app:any) => {
-        let appConfig = await get("app", app).then((doc) => {
-            console.log("GOP")
+ export  const getData = async (app:any,collection:string) => {
+        let appConfig = await get(collection, app).then((doc) => {
             console.log(doc);
-            document.querySelector(".version").textContent ="ver. " + doc[0].data.version 
         });
+        
     };
 
-    //getData(db);
+  

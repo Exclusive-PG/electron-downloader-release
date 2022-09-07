@@ -1,7 +1,7 @@
 {
   "name": "youtube-downloader",
   "productName": "Exclusive-YTDownloader",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "special program for downloading content from YouTube to your computer, and also includes data analytics, history, quick settings, easy and modern user interface, convenient control of playlists on your PC ",
   "main": ".webpack/main",
   "scripts": {
@@ -19,7 +19,9 @@
   "license": "MIT",
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {
+        "icon": "./src/assets/images/icon.ico"
+      },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
@@ -51,7 +53,7 @@
               "name": "electron-downloader-release",
               "draft": true
             },
-            "authToken": "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"
+            "authToken": "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"
           }
         }
       ],

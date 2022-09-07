@@ -16,7 +16,7 @@ import "./scripts/news/news-controller"
 import "./scripts/appController/app"
 
 const loader = document.querySelector<HTMLElement>(".loaderPage");
-const delay = 5000;
+const delay = 3000;
 document.addEventListener("DOMContentLoaded", ()=>pageLoaded(loader));
 
 function pageLoaded(loader:HTMLElement) {

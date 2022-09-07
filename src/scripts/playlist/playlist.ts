@@ -72,7 +72,7 @@ const filterContent = (filterPlaylist: string, mainArray: Array<PlaylistItem>) =
 };
 
 // render list of video items - slide 2
-const renderAvailableContent = (arrayCurrentPlaylist: Array<PlaylistItem>, outResult: HTMLElement) => {
+const renderAvailableContent = (arrayCurrentPlaylist: Array<PlaylistItem>, outResult: HTMLElement )  => {
 	outResult.innerHTML = "";
 	//- ${extension}
 	try {

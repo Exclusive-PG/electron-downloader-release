@@ -20,6 +20,7 @@ const createWindow = (): void => {
 			webSecurity: false,
 		},
 		autoHideMenuBar: true,
+		icon: "./src/assets/images/icon.ico"
 	});
 
 	// and load the index.html of the app.
@@ -33,6 +34,7 @@ const createWindow = (): void => {
 
 	// Open the DevTools.
 	mainWindow.maximize();
+
 	//mainWindow.webContents.openDevTools();
 
 };
@@ -61,6 +63,11 @@ app.on("activate", () => {
 ipcMain.on("app_version", (event) => {
 	event.sender.send("app_version", { version: app.getVersion() });
 });
+
+ipcMain.on("get_argument", (event) => {
+	event.sender.send("get_argument", { argApp: app.commandLine.getSwitchValue("arg1") });
+});
+
 
 
 

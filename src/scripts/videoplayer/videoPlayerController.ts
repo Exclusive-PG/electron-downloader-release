@@ -126,6 +126,8 @@ export const togglePictureInPictureMode = () => {
 };
 
 export const enabledPictureInPictureMode = async () => {
+	//console.log(document.querySelector(".playlistZone").classList.contains("active"))
+	if(!document.querySelector(".playlistZone").classList.contains("active")) return;
 	try {
 		!document.pictureInPictureElement && document.pictureInPictureEnabled && (await videoElement.requestPictureInPicture());
 	} catch (e) {

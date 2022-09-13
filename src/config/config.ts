@@ -103,6 +103,8 @@ export default class Config {
 			})
 			.join("");
 
+		title = title.replace(/[^\p{L}\p{N}\p{P}\p{Z}^$\n]/gu, '').replace("#","");
+
 		return path.join(dirSave, playlist, `${title}${format}`);
 	}
 

@@ -8,6 +8,7 @@ import { configSetup } from "./../config/currentConfig";
 import  { dc } from "./data-collection/DataCollection";
 import { renderDataPage } from "./data-collection/data-page";
 import { renderPlaylistsZone } from "./playlist/playlist";
+import ParserLink from './parserLink/parserLink';
 
 
 const OUPUT_DATA_PERCENT_DOWNLOAD = document.querySelector<HTMLDivElement>(".download-data");
@@ -23,6 +24,7 @@ const downloadScreen = new AnimationContoller(document.querySelector(".download_
 const incorrectUrlOrId = new AnimationContoller(document.querySelector(".search__input"));
 const errorMsgSearchInput = new AnimationContoller(document.querySelector(".error_msg_search_input"));
 const manipulateDOM = new ManipulateDOM();
+const parseLink = new ParserLink()
 
 console.log(configSetup.configDownloadFiles.config);
 
@@ -172,11 +174,20 @@ SEARCH_BUTTON.addEventListener("click", () => {
 
 //event : () => change input link if appropriate
 
-INPUT_FIELD_FOR_VIDEO_ID.addEventListener("input", () => {
-	if (INPUT_FIELD_FOR_VIDEO_ID.value.includes(YOUTUBE_VALIDATE_LINK)) {
-		let res = INPUT_FIELD_FOR_VIDEO_ID.value.split(SEPARATE_SYMBOLS);
-		INPUT_FIELD_FOR_VIDEO_ID.value = res[1].includes("&") ? res[1].split("&")[0] : res[1];
-	}
+
+INPUT_FIELD_FOR_VIDEO_ID.addEventListener("input", (e:any) => {
+	// // if (INPUT_FIELD_FOR_VIDEO_ID.value.includes(YOUTUBE_VALIDATE_LINK)) {
+	// // 	let res = INPUT_FIELD_FOR_VIDEO_ID.value.split(SEPARATE_SYMBOLS);
+	// // 	INPUT_FIELD_FOR_VIDEO_ID.value = res[1].includes("&") ? res[1].split("&")[0] : res[1];
+	// // }
+	
+	let parsedLink = parseLink.parse(e.target.value.toString())
+	
+	console.log(parsedLink);
+
+	INPUT_FIELD_FOR_VIDEO_ID.value = parsedLink.url;
+	console.log(parsedLink.typeVideo)
+	
 });
 
 

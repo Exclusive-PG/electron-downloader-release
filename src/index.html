@@ -109,7 +109,7 @@
 										<ion-icon name="search"></ion-icon>
 									</div>
 								</div>
-								<div class="btn btn__secondary btn-search">
+								<div class="btn btn__secondary btn-search" >
 									<ion-icon style="font-size: 30px" name="search-outline"></ion-icon>
 								</div>
 							</div>
@@ -281,7 +281,7 @@
 				<center><h2 class="hd_news_zone">News</h2></center>
 				<div class="render_place_for_news"></div>
 			</section>
-			<section class="loaderPage ">
+			<section class="loaderPage done">
 				<center><h2 class="hd_loader_page">Exclusive-YTDownloader</h2></center>
 				<svg class="pl" viewBox="0 0 64 64" width="64px" height="64px" >
 					<defs>
@@ -322,19 +322,13 @@
 			const version = document.querySelector(".version");
 
 			ipcRenderer.send("app_version");
-			ipcRenderer.send("get_argument");
 
 			ipcRenderer.on("app_version", (event, arg) => {
 				ipcRenderer.removeAllListeners("app_version");
 				version.textContent = `ver. ${arg.version}`;
 			});
 
-			ipcRenderer.on("get_argument", (event, arg) => {
-				//ipcRenderer.removeAllListeners("get_argument");
-				console.log(arg.argApp)
-			});
 
-			//console.log(app.commandLine.getSwitchValue("arg1"))
 
 		</script>
 	</body>

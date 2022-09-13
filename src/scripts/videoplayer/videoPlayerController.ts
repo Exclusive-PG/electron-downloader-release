@@ -152,7 +152,7 @@ export const setListSrcVideosForVideoPlayer = (list: Array<PlaylistItem>) => {
 };
 export const setCurrentVideoInList = (currentIndex: number) => {
 	videoPlayer.setCurrentPlayingIndexInList = currentIndex;
-	videoPlayer.playPlaylist();
+	videoPlayer.playPlaylist(true);
 };
 // VOLUME
 let isScrubbingVolume = false;

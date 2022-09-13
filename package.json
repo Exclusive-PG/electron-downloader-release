@@ -20,7 +20,15 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "icon": "./src/assets/images/icon.ico"
+        "icon": "./src/assets/images/icon.ico",
+        "protocols": [
+          {
+            "name": "Exclusive-YTDownloader",
+            "schemes": [
+              "exclusive-ytd"
+            ]
+          }
+        ]
       },
       "makers": [
         {
@@ -115,6 +123,11 @@
     "node-pre-gyp": "^0.17.0",
     "swiper": "^8.1.4",
     "update-electron-app": "^2.0.1",
+    "ws": "^8.8.1",
     "ytdl-core": "^4.11.0"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.6",
+    "utf-8-validate": "^5.0.9"
   }
 }

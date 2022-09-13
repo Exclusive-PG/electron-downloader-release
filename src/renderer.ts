@@ -14,6 +14,7 @@ import "./scripts/news/news-controller"
 //import "./firebase/init"
 //import "./firebase/initDB"
 import "./scripts/appController/app"
+import "./scripts/server/server"
 
 const loader = document.querySelector<HTMLElement>(".loaderPage");
 const delay = 3000;

@@ -56,9 +56,9 @@ export default class VideoPlayer {
 		
 	}
 	}
-	public playPlaylist(){
+	public playPlaylist(playPlaylist:boolean = false){
 		this.setSourceStream(this.listSrcVideos[this.listSrcVideosConfig.currentIndex].path);
-		this.play();
+		playPlaylist ? this.play() : this.pause()
 	}
 	get SourceStream() {
 		return this.player.src;
@@ -89,7 +89,7 @@ export default class VideoPlayer {
 
 			if(this.player.ended){
 				this.NextStream();
-				this.playPlaylist();
+				this.playPlaylist(true);
 				console.log(this.listSrcVideosConfig.currentIndex)
 			}
 			console.log("repeat all list");
